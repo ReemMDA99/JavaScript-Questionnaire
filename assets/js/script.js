@@ -213,5 +213,13 @@ function showHighsocre() {
     generateHighscores();
 
 }
+//create a function to clear local storage of highscores
+function clearScore() {
+    window.localStorage.clear();
+    highscoreDisplayName.textContent = "";
+    highscoreDisplayScore.textContent = "";
+}
+
+
 // Start the quiz
 startQuizButton.addEventListener("click",startQuiz);
