@@ -231,6 +231,24 @@ function replayQuiz() {
 // create a function to check if the answer is correct
 function checkAnswer(answer) {
     correct = quizQuestions[currentQuestionIndex].correctAnswer;
+
+if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
+    score++;
+    alert("Your answer is Correct!");
+    currentQuestionIndex++;
+    generateQuizQuestion();
+} else if {
+//display in the results div that the answer is correct.
+alert("Oops! Your answer is Incorrect")
+currentQuestionIndex++;
+generateQuizQuestion();
+
+// Subtract 10 secs from timer if answer is wrong//
+timeLeft -= 10;
+if (timeLeft < 0) {
+    clearInterval(timer);
+    alert("Time is up!");
+    showScore();
 }
 
 
