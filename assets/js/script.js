@@ -250,8 +250,11 @@ if (timeLeft < 0) {
     alert("Time is up!");
     showScore();
 }
-
-
+//display in the results div that the answer is wrong.
+    } else {
+      showScore();
+    }
+}
 
 // Start the quiz
 startQuizButton.addEventListener("click",startQuiz);
