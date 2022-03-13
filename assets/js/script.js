@@ -98,3 +98,47 @@ var quizQuestions = [{
     choiceD: "Develop Object Model",
     correctAnswer: "b"}, 
     ];
+// Create var for global variables and timer
+var finalQuestionIndex = quizQuestions.length;
+var currentQuestionIndex = 0;
+var timeLeft = 76;
+var timerInterval;
+var score = 0;
+var correct;
+
+// Create a function to generate questions and answers.
+function generateQuizQuestion(){
+    gameoverDiv.style.display = "none";
+    if (currentQuestionIndex === finalQuestionIndex){
+        return showScore();
+    } 
+    var currentQuestion = quizQuestions[currentQuestionIndex];
+    questionsEl.innerHTML = "<p>" + currentQuestion.question + "</p>";
+    buttonA.innerHTML = currentQuestion.choiceA;
+    buttonB.innerHTML = currentQuestion.choiceB;
+    buttonC.innerHTML = currentQuestion.choiceC;
+    buttonD.innerHTML = currentQuestion.choiceD;
+};
+// Start Quiz function starts the TimeRanges
+
+function startQuiz(){
+    gameoverDiv.style.display = "none";
+
+    // hides the start button
+startQuizDiv.style.display = "none";
+
+//displays the first quiz question
+generateQuizQuestion();
+
+//Create and set timer function
+    timerInterval = setInterval(function() {
+        timeLeft--;
+        quizTimer.textContent = "TIME LEFT: " + timeLeft;
+
+    if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        showScore();
+    }
+}, 1000);
+    quizBody.style.display = "block";
+}
