@@ -1,12 +1,14 @@
 # JavaScript-Questionnaire
-# JavaScript-Questionnaire
 
 ## Description:
 This is a browser based quiz on Javascript fundamentals. Upon opening the application, user will be presented rules of the quiz and a start button. The start button actives a 75 seconds timer, as well as multiple choice questions that dynamically updates with user clicks. The purpose of building this application is to practice important developer skills such as traversing the DOM, adding event listeners, setting up and accessing the local storage, etc. These skills are crucial in order to create a website that dynamically reacts to user inputs.
 
 ## Screenshot:
+![Picture1](https://user-images.githubusercontent.com/94458512/158070422-d3e3bfc4-88b7-41ea-aca2-f75fc1fd5438.png)
 
+![Picture2](https://user-images.githubusercontent.com/94458512/158070431-0dcac3a5-8644-4507-8af6-bce8779654f1.png)
 
+![Picture3](https://user-images.githubusercontent.com/94458512/158070445-1f93961a-8dbe-4910-9d68-5eb992ade931.png)
 
 
 ## The Challenge:
