@@ -142,3 +142,12 @@ generateQuizQuestion();
 }, 1000);
     quizBody.style.display = "block";
 }
+//create a function to display the score after completing the quiz in the end
+function showScore(){
+    quizBody.style.display = "none";
+    gameoverDiv.style.display= "flex";
+    clearInterval(timeInterval);
+
+    highscoreInputName.value = "";
+    finalScoreEl.innerHTML = "Congratulations! you have got " + score + "out of " + quizQuestions.length + " correct!";
+    }
