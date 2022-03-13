@@ -142,6 +142,17 @@ generateQuizQuestion();
 }, 1000);
     quizBody.style.display = "block";
 }
+
+// create var for highscroe function
+
+var highscorecard = document.getElementById("highscorecard");
+var highscoreDiv = document.getElementById("high-scorePage");
+var highscoreInputName = document.getElementById("initials");
+var highscoreDisplayName = document.getElementById("highscore-initials");
+var endGameBtns = document.getElementById("endGameBtns");
+var submitScoreBtn = document.getElementById("submitScore");
+var highscoreDisplayScore = document.getElementById("highscore-score");
+
 //create a function to display the score after completing the quiz in the end
 function showScore(){
     quizBody.style.display = "none";
@@ -151,3 +162,29 @@ function showScore(){
     highscoreInputName.value = "";
     finalScoreEl.innerHTML = "Congratulations! you have got " + score + "out of " + quizQuestions.length + " correct!";
     }
+// When a user clicks submit button, run the function highscore that saves and JSON stringifies the array of high scores already saved in local stoage.
+submitScoreBtn.addEventListener("click", function highscore() {
+    if (highscoreInputName.value === "") {
+        alert("Initials cannot be blank");
+        return false;
+    } else {
+        var savedHighscores= JSON.parse(localStorage.getItem("savedHighscores")) || [];
+        var currentUser = highscoreInputName.value.trim();
+        var currentHighscore = {
+            name: currentUser,
+            score: score
+        };
+        //Create the function to show user's name and scores.
+        gameoverDiv.style.display = "none";
+        highscorecard.style.display = "flex";
+        highscoreDiv.style.display = "block";
+        endGameBtns.style.display = "flex";
+        
+        savedHighscores.push(currentHighscore);
+        localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+        generateHighscores();
+
+    }
+
+});
+
