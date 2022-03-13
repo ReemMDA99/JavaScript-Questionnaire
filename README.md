@@ -27,4 +27,4 @@ It is required to create a quiz application, which will include multiple-choice 
 ## Installation:
 The project was uploaded to GitHub at the following repository: https://github.com/ReemMDA99/JavaScript-Questionnaire
 
-You can access the deployed application with the GitHup Pages link:
+You can access the deployed application with the GitHup Pages link: https://reemmda99.github.io/JavaScript-Questionnaire/
