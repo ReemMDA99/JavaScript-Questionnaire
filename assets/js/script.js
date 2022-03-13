@@ -7,8 +7,15 @@ var questionsEl = document.getElementById("questions");
 var quizTimer = document.getElementById("timer");
 var startQuizButton = document.getElementById("startbtn");
 var startQuizDiv = document.getElementById("startpage");
+var highscorecard = document.getElementById("highscorecard");
+var highscoreDiv = document.getElementById("high-scorePage");
+var highscoreInputName = document.getElementById("initials");
+var highscoreDisplayName = document.getElementById("highscore-initials");
+var endGameBtns = document.getElementById("endGameBtns");
+var submitScoreBtn = document.getElementById("submitScore");
+var highscoreDisplayScore = document.getElementById("highscore-score");
 
-//Create button options by using var buttonA,B,C,D
+//Create button options by using var button A,B,C,D
 
 var buttonA = document.getElementById("a");
 var buttonB = document.getElementById("b");
@@ -36,7 +43,7 @@ var quizQuestions = [{
    {
     // Question-3
     question: "Which of the following methods is used to access HTML elements using Javascript?",
-    choiceA: "getElementbyId()",
+    choiceA: "getElementById()",
     choiceB: "getElementByClassName()",
     choiceC: "Both  A & B",
     choiceD: "None of the above",
@@ -120,6 +127,8 @@ function generateQuizQuestion(){
     buttonD.innerHTML = currentQuestion.choiceD;
 };
 // Start Quiz function starts the TimeRanges
+// hides the start button
+//displays the first quiz question.
 
 function startQuiz(){
     gameoverDiv.style.display = "none";
@@ -143,21 +152,12 @@ generateQuizQuestion();
     quizBody.style.display = "block";
 }
 
-// create var for highscroe function
-
-var highscorecard = document.getElementById("highscorecard");
-var highscoreDiv = document.getElementById("high-scorePage");
-var highscoreInputName = document.getElementById("initials");
-var highscoreDisplayName = document.getElementById("highscore-initials");
-var endGameBtns = document.getElementById("endGameBtns");
-var submitScoreBtn = document.getElementById("submitScore");
-var highscoreDisplayScore = document.getElementById("highscore-score");
 
 //create a function to display the score after completing the quiz in the end
 function showScore(){
     quizBody.style.display = "none";
     gameoverDiv.style.display= "flex";
-    clearInterval(timeInterval);
+    clearInterval(timerInterval);
 
     highscoreInputName.value = "";
     finalScoreEl.innerHTML = "Congratulations! you have got " + score + "out of " + quizQuestions.length + " correct!";
@@ -177,7 +177,7 @@ submitScoreBtn.addEventListener("click", function highscore() {
         //Create the function to show user's name and scores.
         gameoverDiv.style.display = "none";
         highscorecard.style.display = "flex";
-        highscoreDiv.style.display = "block";
+        //highscoreDiv.style.display = "block";
         endGameBtns.style.display = "flex";
         
         savedHighscores.push(currentHighscore);
@@ -192,7 +192,7 @@ function generateHighscores(){
 
 var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
     
-for (i=0; i < highscores.length; i++){
+for (i=0; i < highscores.length; i++) {
         var newNameSpan = document.createElement("li");
         var newScoreSpan = document.createElement("li");
         
@@ -203,7 +203,7 @@ for (i=0; i < highscores.length; i++){
     }
 }
 //Display highscore page 
-function showHighsocre() {
+function showHighscore() {
     startQuizDiv.style.display = "none";
     gameoverDiv.style.display ="none";
     highscorecard.style.display = "flex";
@@ -237,7 +237,7 @@ if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
     alert("Your answer is Correct!");
     currentQuestionIndex++;
     generateQuizQuestion();
-} else if {
+} else if (answer !== correct && currentQuestionIndex !==finalQuestionIndex) {
 //display in the results div that the answer is correct.
 alert("Oops! Your answer is Incorrect")
 currentQuestionIndex++;
@@ -249,12 +249,11 @@ if (timeLeft < 0) {
     clearInterval(timer);
     alert("Time is up!");
     showScore();
-}
+    }
 //display in the results div that the answer is wrong.
     } else {
       showScore();
     }
 }
-
 // Start the quiz
 startQuizButton.addEventListener("click",startQuiz);
