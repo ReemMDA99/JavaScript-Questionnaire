@@ -183,8 +183,35 @@ submitScoreBtn.addEventListener("click", function highscore() {
         savedHighscores.push(currentHighscore);
         localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
         generateHighscores();
-
     }
-
 });
+//Create a function that clears the list for the high scores and generates a new high score list from local storage
+function generateHighscores(){
+    highscoreDisplayName.innerHTML = "";
+    highscoreDisplayScore.innerHTML = "";
 
+var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+    
+for (i=0; i < highscores.length; i++){
+        var newNameSpan = document.createElement("li");
+        var newScoreSpan = document.createElement("li");
+        
+        newNameSpan.textContent = highscores[i].name;
+        newScoreSpan.textContent = highscores[i].score;
+        highscoreDisplayName.appendChild(newNameSpan);
+        highscoreDisplayScore.appendChild(newScoreSpan);
+    }
+}
+//Display highscore page 
+function showHighsocre() {
+    startQuizDiv.style.display = "none";
+    gameoverDiv.style.display ="none";
+    highscorecard.style.display = "flex";
+    highscoreDiv.style.display="block";
+    endGameBtns.style.display = "flex";
+
+    generateHighscores();
+
+}
+// Start the quiz
+startQuizButton.addEventListener("click",startQuiz);
