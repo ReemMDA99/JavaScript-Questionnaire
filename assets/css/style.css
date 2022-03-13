@@ -48,3 +48,22 @@ input{
     border:6px dotted black;
     background-color: lightgoldenrodyellow;
   }
+  button {
+      display: inline-block;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background-color: #972b2b;
+      border-radius: 50%;
+      border: 3px double #cccccc;
+      text-align:center;
+      font-size: 20px;
+      font-style: bold;
+      padding: 20px;
+      width: 270px;
+      margin-top: 10px;
+  }
+
+  button:hover {
+      box-shadow: 4px 3px 6px #8f8884;
+      background-color:lightsalmon;
+      
+  }
