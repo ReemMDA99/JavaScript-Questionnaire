@@ -219,6 +219,20 @@ function clearScore() {
     highscoreDisplayName.textContent = "";
     highscoreDisplayScore.textContent = "";
 }
+//Generate replay quiz
+function replayQuiz() {
+    highscorecard.style.display= "none";
+    gameoverDiv. style.display = "none";
+    startQuizDiv.style.display = "flex";
+    timeLeft = 75;
+    score = 0;
+    currentQuestionIndex = 0;
+}
+// create a function to check if the answer is correct
+function checkAnswer(answer) {
+    correct = quizQuestions[currentQuestionIndex].correctAnswer;
+}
+
 
 
 // Start the quiz
