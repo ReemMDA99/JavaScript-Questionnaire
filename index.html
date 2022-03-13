@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="./assets/css/style.css"></link>
     </head>
     <body>
+    <!--Create header and container of page-->
         <header> JavaScript Questionnaire </header>
         <div class="card">
         <div id="startpage">
@@ -14,6 +15,8 @@
             <button id="startbtn">Start Code Quiz</button>
             <button id="startPageHighscore" onclick="showHighscore()"> High Scores</button>
         </div>
+            <!--Create Quiz and timer buttons-->
+
         <div id="quiz">
             <div id="timer">Time left: </div>
             <div id="questions">
@@ -25,14 +28,28 @@
             <button id="a" onclick="checkAnswer('d')">D</button>
             <div id ="result"> </div>
         </div>
+                    <!--Create score board-->
+
         <div id="gameover">
             <div id ="finalScore"></div>
             <input type="text" size="80" placeholder="Enter your initials for high score" name="initials" id="initials"/>
             <button id="submitScore"> Submit Score</button>
         </div>
-
+        <div id="higscorecard">
+        <div id=" high-scorePage">
+            <div id="highscore-header">
+                <h3>User Initials</h3>
+                <h3>Score</h3>
         </div>
+        <div id = "highscore-initials"></div>
+        <div id = "highscore-score"></div>
+        </div>
+        <div id="endGameBtns">
+            <button id="playAgain" onclick="replayQuiz()"> Retak Quiz</button>
+            <button id="clearHighscore" onclick="clearScore()">Clear Scores</button>
+        </div>
+        </div>
+        </div>
+     <script src="./assets/js/script.js"></script>
     </body>
-    
-    </head>
 </html>
